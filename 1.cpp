@@ -2,6 +2,7 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+
 #include "city_struct.h"
 #include "class_problema.h"
 #include "class_tour.h"
@@ -30,6 +31,7 @@ int main() {
   ciudad1.push_n(n);
   ciudad1.insert_coordenadas(on_x, on_y);
   ciudad1.show_cities();
+  cout<<ciudad1.distancia(1,2);
 
   return 0;
 }

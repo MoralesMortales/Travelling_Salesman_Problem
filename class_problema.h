@@ -11,16 +11,10 @@ class problema {
 
   cities city[100];
 
-  int cities_coordenates[50 + 1][50 + 1];
-
-  int cities_coordenates_in_x[50 + 1];
-
-  int cities_coordenates_in_y[50 + 1];
-
  public:
   problema() {}
 
-  float distancia(int i, int j);
+  float distancia(int city_1, int city_2);
 
   void push_n(int the_n);
 
