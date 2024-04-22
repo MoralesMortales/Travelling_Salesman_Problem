@@ -6,8 +6,6 @@
 
 tour::tour(problema a_problem) { problem_tour = a_problem; }
 
-void tour::show() {}
-
 void problema::push_n(int the_n) {
   n = the_n;
 
@@ -38,24 +36,75 @@ float problema::distancia(int city_1, int city_2) {
 
   int searcher_x = city_temp_1.coordenate_x;
   int searcher_y = city_temp_1.coordenate_y;
+
   int counter = 0;
 
   while (searcher_x != city_temp_2.coordenate_x) {
     counter++;
 
-    if (searcher_x >  city_temp_2.coordenate_x) {
+    if (searcher_x > city_temp_2.coordenate_x) {
       searcher_x--;
     }
 
     else if (searcher_x < city_temp_2.coordenate_x) {
-     searcher_x++;
+      searcher_x++;
     }
 
     else if (searcher_x == city_temp_2.coordenate_x) {
       break;
     }
-
   }
 
+  searcher_x = counter;
+
+  counter = 0;
+
+  while (searcher_y != city_temp_2.coordenate_y) {
+    counter++;
+
+    if (searcher_y > city_temp_2.coordenate_y) {
+      searcher_y--;
+    }
+
+    else if (searcher_y < city_temp_2.coordenate_y) {
+      searcher_y++;
+    }
+
+    else if (searcher_y == city_temp_2.coordenate_y) {
+      break;
+    }
+  }
+
+  searcher_y = counter;
+
+  counter = searcher_x + searcher_y;
+
   return counter;
+}
+
+void tour::explora() {
+  bool possibilities = true;
+
+int counter = 0;
+int counter_sta = 0;
+
+  do {
+    configuracion[actual][problem_tour.getn()];
+
+    counter++;
+    counter_sta++;
+    for (int f = 2; f <= problem_tour.getn() + 1; f++)    
+  if (problem_tour.distancia(counter,counter_sta) < problem_tour.distancia(counter,f))
+  {
+    configuracion[!actual][f-1] =  problem_tour.distancia(counter,counter_sta);
+  }
+  
+  } while (counter_sta != problem_tour.getn() + 1);
+
+  for (int o = 1; o < problem_tour.getn() + 1; o++)
+  {
+    std::cout<<configuracion[actual][o]<<std::endl;
+    !actual;
+  }
+  
 }

@@ -12,7 +12,8 @@ using namespace std;
 
 int main() {
   int n;
-  cout << "Ingrese un numero de caiudades: ";
+
+  cout << "Ingrese un numero de ciudades: ";
   cin >> n;
   cout << "\n";
 
@@ -31,7 +32,31 @@ int main() {
   ciudad1.push_n(n);
   ciudad1.insert_coordenadas(on_x, on_y);
   ciudad1.show_cities();
-  cout<<ciudad1.distancia(1,2);
+
+  cout << "Desea ver la distancia entre algunas ciudades? s/n: ";
+  char opt_distanc;
+  cin >> opt_distanc;
+
+  if (opt_distanc == 's' || opt_distanc == 'S') {
+    int city_1, city_2;
+    cout << "Elija con cuales ciudades ciudades desea ver la distancia\nCiudad "
+            "1: "
+            "1: ";
+    cin >> city_1;
+    cout << "Ciudad 2: ";
+    cin >> city_2;
+
+    cout << "La distancia es de " << ciudad1.distancia(city_1, city_2) << "\n";
+  }
+
+  tour tour1(ciudad1);
+  
+  tour1.explora();
+  
+
+  cout << endl;
+
+  cout << "Gracias por usar";
 
   return 0;
 }

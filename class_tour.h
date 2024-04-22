@@ -8,7 +8,7 @@ class tour {
  private:
   problema problem_tour;
   int configuracion[2][101];
-  int actual;
+  int actual = 1;
 
  public:
   tour() {}
