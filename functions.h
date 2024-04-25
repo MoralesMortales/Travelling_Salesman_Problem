@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 #include "city_struct.h"
 #include "class_problema.h"
 #include "class_tour.h"
@@ -77,9 +77,9 @@ float problema::distancia(int city_1, int city_2) {
 
   searcher_y = counter;
 
-  counter = searcher_x + searcher_y;
-
-  return counter;
+  float sum = sqrt((searcher_x*searcher_x) + (searcher_y*searcher_y));
+  
+  return sum;
 }
 
 void tour::explora() {
