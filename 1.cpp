@@ -50,12 +50,12 @@ int main() {
   }
 
   tour tour1(ciudad1);
-  
+
   tour1.explora();
-  
+
   cout << endl;
 
-  cout << "Gracias por usar"; 
+  cout << "Gracias por usar";
 
   return 0;
 }
