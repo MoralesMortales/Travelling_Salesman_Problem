@@ -93,25 +93,19 @@ void tour::explora() {
     configuracion[actual][problem_tour.getn()];  // 1-n
 
     counter++;
-    counter_sta++;
-    for (int f = 2; f <= problem_tour.getn() + 1; f++)  // 2 < n
-      
-      
-      
-      /* if (problem_tour.distancia(counter, counter_sta) <
-          problem_tour.distancia(counter, f))  // distancia 1 < distancia 2
-      {
-        configuracion[!actual][f - 1] = configuracion[counter][counter_sta]; //conf !actual = 
-      } */
 
+    for (int f = 2; f <= problem_tour.getn() + 1; f++) {  // 2 < n
 
-//esto del -1 no funciona
+       if (problem_tour.distancia(counter, counter + 1)){
+        counter_sta++;
+        configuracion[!actual][counter_sta] = configuracion[counter][counter + 1];  // conf !actual = 
+      }
+       // esto del -1 no funciona
+    }while (counter <= 10);
 
-
-  } while (counter_sta < 15);
-
-  for (int o = 1; o < problem_tour.getn() + 1; o++) {
-    std::cout << configuracion[actual][o] << std::endl;
-    !actual;
+    for (int o = 1; o < problem_tour.getn() + 1; o++) {
+      std::cout << configuracion[actual][o] << std::endl;
+    }
+    actual = !actual;
   }
 }
