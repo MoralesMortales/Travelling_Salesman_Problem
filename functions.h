@@ -1,5 +1,6 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+
 #include "city_struct.h"
 #include "class_problema.h"
 #include "class_tour.h"
@@ -77,34 +78,40 @@ float problema::distancia(int city_1, int city_2) {
 
   searcher_y = counter;
 
-  float sum = sqrt((searcher_x*searcher_x) + (searcher_y*searcher_y));
-  
+  float sum = sqrt((searcher_x * searcher_x) + (searcher_y * searcher_y));
+
   return sum;
 }
 
 void tour::explora() {
   bool possibilities = true;
 
-int counter = 0;
-int counter_sta = 0;
+  int counter = 0;
+  int counter_sta = 0;
 
   do {
-    configuracion[actual][problem_tour.getn()];
+    configuracion[actual][problem_tour.getn()];  // 1-n
 
     counter++;
     counter_sta++;
-    for (int f = 2; f <= problem_tour.getn() + 1; f++)    
-  if (problem_tour.distancia(counter,counter_sta) < problem_tour.distancia(counter,f))
-  {
-    configuracion[!actual][f-1] =  problem_tour.distancia(counter,counter_sta);
-  }
-  
-  } while (counter_sta != problem_tour.getn() + 1);
+    for (int f = 2; f <= problem_tour.getn() + 1; f++)  // 2 < n
+      
+      
+      
+      /* if (problem_tour.distancia(counter, counter_sta) <
+          problem_tour.distancia(counter, f))  // distancia 1 < distancia 2
+      {
+        configuracion[!actual][f - 1] = configuracion[counter][counter_sta]; //conf !actual = 
+      } */
 
-  for (int o = 1; o < problem_tour.getn() + 1; o++)
-  {
-    std::cout<<configuracion[actual][o]<<std::endl;
+
+//esto del -1 no funciona
+
+
+  } while (counter_sta < 15);
+
+  for (int o = 1; o < problem_tour.getn() + 1; o++) {
+    std::cout << configuracion[actual][o] << std::endl;
     !actual;
   }
-  
 }
