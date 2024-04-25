@@ -53,10 +53,9 @@ int main() {
   
   tour1.explora();
   
-
   cout << endl;
 
-  cout << "Gracias por usar";
+  cout << "Gracias por usar"; 
 
   return 0;
 }
