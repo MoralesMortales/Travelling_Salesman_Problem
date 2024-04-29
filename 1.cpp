@@ -44,6 +44,7 @@ int main() {
             "1: ";
     cin >> city_1;
     cout << "Ciudad 2: ";
+
     cin >> city_2;
 
     cout << "La distancia es de " << ciudad1.distancia(city_1, city_2) << "\n";

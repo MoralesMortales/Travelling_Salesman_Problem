@@ -4,7 +4,12 @@
 #include "class_problema.h"
 #include "class_tour.h"
 
-tour::tour(problema a_problem) { problem_tour = a_problem; }
+tour::tour(problema a_problem) { 
+  problem_tour = a_problem; 
+  configuracion[1][101]
+  for (int counter = 0; counter < problem_tour.getn(); counter++) {
+  configuracion[actual][counter] = 
+  }} // hay que buscar una forma de usar problema para sacar la distancia total
 
 void problema::push_n(int the_n) {
   n = the_n;
@@ -83,28 +88,22 @@ float problema::distancia(int city_1, int city_2) {
 }
 
 void tour::explora() {
-  bool possibilities = true;
-
-int counter = 0;
-int counter_sta = 0;
-
+  
+  int counter = 0;
+  
   do {
-    configuracion[actual][problem_tour.getn()];
+    for (int f = 0; f <= problem_tour.getn(); f++) {
+      if (configuracion[actual][counter] < configuracion[actual][f]) {
+      configuracion[!actual][f] = configuracion[actual][counter];  
+      }
+    }
 
     counter++;
-    counter_sta++;
-    for (int f = 2; f <= problem_tour.getn() + 1; f++)    
-  if (problem_tour.distancia(counter,counter_sta) < problem_tour.distancia(counter,f))
-  {
-    configuracion[!actual][f-1] =  problem_tour.distancia(counter,counter_sta);
-  }
-  
-  } while (counter_sta != problem_tour.getn() + 1);
+    actual = !actual;
 
-  for (int o = 1; o < problem_tour.getn() + 1; o++)
-  {
-    std::cout<<configuracion[actual][o]<<std::endl;
-    !actual;
-  }
-  
-}
+  }while (counter != problem_tour.getn());
+
+  for (int f = 0; f <= problem_tour.getn(); f++) {
+      std::cout<<configuracion[actual][f]<<"\n";
+      }
+    }

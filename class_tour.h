@@ -5,10 +5,11 @@
 #include "class_problema.h"
 
 class tour {
+
  private:
   problema problem_tour;
-  int configuracion[2][101];
-  int actual = 1;
+  int configuracion[1][101];
+  bool actual = true;
 
  public:
   tour() {}
