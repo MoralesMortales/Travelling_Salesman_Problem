@@ -4,12 +4,16 @@
 #include "class_problema.h"
 #include "class_tour.h"
 
+int problema::getId(struct cities){
+  return city->id_city;
+}
+
 tour::tour(problema a_problem) { 
   problem_tour = a_problem; 
-  configuracion[1][101]
   for (int counter = 0; counter < problem_tour.getn(); counter++) {
-  configuracion[actual][counter] = 
-  }} // hay que buscar una forma de usar problema para sacar la distancia total
+  configuracion[actual][counter] = problem_tour.getId(AQUI HAY QUE PONER LA STRUCT);
+  } // hay que buscar una forma de usar problema para sacar la distancia total
+}
 
 void problema::push_n(int the_n) {
   n = the_n;
@@ -17,10 +21,6 @@ void problema::push_n(int the_n) {
   cities city[100];
 }
 
-int problema::getId(struct cities){
-
-  return city->id_city;
-}
 
 void problema::insert_coordenadas(int in_x[], int in_y[]) {
   for (int counter = 1; counter < n + 1; counter++) {
