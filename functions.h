@@ -17,6 +17,11 @@ void problema::push_n(int the_n) {
   cities city[100];
 }
 
+int problema::getId(struct cities){
+
+  return city->id_city;
+}
+
 void problema::insert_coordenadas(int in_x[], int in_y[]) {
   for (int counter = 1; counter < n + 1; counter++) {
     city[counter].id_city = counter;

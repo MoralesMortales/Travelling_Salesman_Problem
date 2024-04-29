@@ -16,6 +16,8 @@ class problema {
 
   float distancia(int city_1, int city_2);
 
+  int getId(struct cities);
+
   void push_n(int the_n);
 
   void insert_coordenadas(int in_x[], int in_y[]);
