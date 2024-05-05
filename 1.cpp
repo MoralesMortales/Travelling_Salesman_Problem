@@ -1,62 +1,53 @@
-#include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <string>
 
-#include "city_struct.h"
-#include "class_problema.h"
-#include "class_tour.h"
-#include "functions.h"
+class problema {
+ private:
+  int n;
+
+ public:
+  problema() {}
+
+  float distancia(int city_1, int city_2);
+
+  int getId(struct cities);
+
+  void push_n(int the_n);
+
+  void insert_coordenadas(int in_x[], int in_y[]);
+
+  int getn();
+
+  void show_cities();
+};
+
+class tour {
+
+ private:
+  problema problem_tour;
+  int configuracion[1][101];
+  bool actual = true;
+
+ public:
+  tour() {}
+
+  tour(problema a_problem);
+
+  float costo;
+
+  void show();
+
+  void explora();
+
+  void avanza();
+};
 
 using namespace std;
 
 int main() {
-  int n;
-
-  cout << "Ingrese un numero de ciudades: ";
-  cin >> n;
-  cout << "\n";
-
-  srand(time(NULL));
-
-  int on_x[100];
-  int on_y[100];
-
-  for (int i = 1; i < n + 1; i++) {
-    on_x[i] = rand() % 50 + 1;
-    on_y[i] = rand() % 50 + 1;
-  }
-
-  problema ciudad1;
-
-  ciudad1.push_n(n);
-  ciudad1.insert_coordenadas(on_x, on_y);
-  ciudad1.show_cities();
-
-  cout << "Desea ver la distancia entre algunas ciudades? s/n: ";
-  char opt_distanc;
-  cin >> opt_distanc;
-
-  if (opt_distanc == 's' || opt_distanc == 'S') {
-    int city_1, city_2;
-    cout << "Elija con cuales ciudades ciudades desea ver la distancia\nCiudad "
-            "1: "
-            "1: ";
-    cin >> city_1;
-    cout << "Ciudad 2: ";
-
-    cin >> city_2;
-
-    cout << "La distancia es de " << ciudad1.distancia(city_1, city_2) << "\n";
-  }
-
-  tour tour1(ciudad1);
-
-  tour1.explora();
-
-  cout << endl;
-
-  cout << "Gracias por usar";
+  
+	int n;
 
   return 0;
 }
