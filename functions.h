@@ -1,114 +1,55 @@
 #include <iostream>
-
-#include "city_struct.h"
 #include "class_problema.h"
 #include "class_tour.h"
+#include <math.h>
 
-int problema::getId(struct cities){
-  return city->id_city;
+
+problema::problema(int nn, float user_coordenates[1][100]){
+
+    for(int asign_values = 0; asign_values < nn; asign_values++){
+        coordenadas[0][asign_values] = user_coordenates[0][asign_values];
+        coordenadas[1][asign_values] = user_coordenates[1][asign_values];
+    }
+
+n = nn;
 }
 
-tour::tour(problema a_problem) { 
-  problem_tour = a_problem; 
-  for (int counter = 0; counter < problem_tour.getn(); counter++) {
-  configuracion[actual][counter] = problem_tour.getId(AQUI HAY QUE PONER LA STRUCT);
-  } // hay que buscar una forma de usar problema para sacar la distancia total
+tour::tour(problema pp, float cc[100]){
+actual = 0;
+PP=pp;
+c[2][100] = cc[100];
 }
 
-void problema::push_n(int the_n) {
-  n = the_n;
-
-  cities city[100];
+int problema::getn(){
+return n;
 }
 
-
-void problema::insert_coordenadas(int in_x[], int in_y[]) {
-  for (int counter = 1; counter < n + 1; counter++) {
-    city[counter].id_city = counter;
-    city[counter].coordenate_x = in_x[counter];
-    city[counter].coordenate_y = in_y[counter];
-  }
+float problema::distancia(int x, int y){
+return sqrt(pow(coordenadas[0][x]-coordenadas[0][y],2) + pow(coordenadas[1][x]-coordenadas[1][y],2));
 }
 
-int problema::getn() { return n; }
+void tour::explorar(){
+int x=1;
+int y=1;
+int temp;
 
-void problema::show_cities() {
-  for (int counter = 1; counter < n + 1; counter++) {
-    std::cout << "City id: " << city[counter].id_city
-              << ". x: " << city[counter].coordenate_x
-              << ". y: " << city[counter].coordenate_y << "\n\n";
-  }
+while (x=y){
+x=rand()%7;
+y=rand()%7;}
+for(int i=1;i<7;i++){
+c[actual][i];
 }
 
-float problema::distancia(int city_1, int city_2) {
-  cities city_temp_1 = city[city_1];
-  cities city_temp_2 = city[city_2];
-
-  int searcher_x = city_temp_1.coordenate_x;
-  int searcher_y = city_temp_1.coordenate_y;
-
-  int counter = 0;
-
-  while (searcher_x != city_temp_2.coordenate_x) {
-    counter++;
-
-    if (searcher_x > city_temp_2.coordenate_x) {
-      searcher_x--;
-    }
-
-    else if (searcher_x < city_temp_2.coordenate_x) {
-      searcher_x++;
-    }
-
-    else if (searcher_x == city_temp_2.coordenate_x) {
-      break;
-    }
-  }
-
-  searcher_x = counter;
-
-  counter = 0;
-
-  while (searcher_y != city_temp_2.coordenate_y) {
-    counter++;
-
-    if (searcher_y > city_temp_2.coordenate_y) {
-      searcher_y--;
-    }
-
-    else if (searcher_y < city_temp_2.coordenate_y) {
-      searcher_y++;
-    }
-
-    else if (searcher_y == city_temp_2.coordenate_y) {
-      break;
-    }
-  }
-
-  searcher_y = counter;
-
-  counter = searcher_x + searcher_y;
-
-  return counter;
+c[!actual][x] = c[!actual][temp];
+c[!actual][y] = c[!actual][x];
+c[!actual][y] = c[!actual][temp];
 }
 
-void tour::explora() {
-  
-  int counter = 0;
-  
-  do {
-    for (int f = 0; f <= problem_tour.getn(); f++) {
-      if (configuracion[actual][counter] < configuracion[actual][f]) {
-      configuracion[!actual][f] = configuracion[actual][counter];  
-      }
-    }
+void problema::show(){ 
+    
+for(int i=0; i<n; i++){
+    std::cout<<"\n"<<i+1<<":\n|x| - "<<coordenadas[0][i]<<"\n";
+    std::cout<<"|y| - "<<coordenadas[1][i];
+}
 
-    counter++;
-    actual = !actual;
-
-  }while (counter != problem_tour.getn());
-
-  for (int f = 0; f <= problem_tour.getn(); f++) {
-      std::cout<<configuracion[actual][f]<<"\n";
-      }
-    }
+}

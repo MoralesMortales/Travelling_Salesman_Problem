@@ -1,28 +1,24 @@
 #ifndef CLASS_TOUR_H
 #define CLASS_TOUR_H
 
-#include "city_struct.h"
 #include "class_problema.h"
 
 class tour {
 
  private:
-  problema problem_tour;
-  int configuracion[1][101];
-  bool actual = true;
+  
+  problema PP;
+  float c[2][100];
+  int actual;
 
  public:
   tour() {}
 
-  tour(problema a_problem);
+  tour(problema pp, float cc[100]);
 
-  float costo;
+  void explorar();
 
-  void show();
-
-  void explora();
-
-  void avanza();
+  void mover();
 };
 
 #endif // CLASS_TOUR_H
