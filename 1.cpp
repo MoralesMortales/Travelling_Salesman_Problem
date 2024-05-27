@@ -10,29 +10,37 @@
 using namespace std;
 
 int main() {
-
   int n = 7;
-  float coordenadas[2][100];  //x,y
-  
+  float coordenadas[3][100];  // x,y
+
   srand(time(0));
 
-  for (int f = 0; f < n; f++) {
-    for (int i = 0; i < 2; i++)
-    {
+  for (int i = 0; i < 3; i++) {
+    for (int f = 0; f < n; f++) {
+      if (i == 0) {
+        coordenadas[i][f] = f + 1;
+      }
+      else{
       coordenadas[i][f] = rand() % 10;
+    }
     }
   }
 
-cout<<"\nThere are "<<n<<" cities\n";
+cout << "\nThere are " << n << " cities\n";
 
 problema P(7, coordenadas);
 
 P.show();
 
+tour the_tour(P,n);
 
+std::cout<<"costo:"<<the_tour.costo()<<"\n";
 
-std::cout<<P.distancia(2,4)<<" km\n";
+the_tour.explorar();
 
-  return 0;        
-          }
+the_tour.show_ordenamiento();
 
+std::cout<<"costo:"<<the_tour.costo();
+
+return 0;
+}

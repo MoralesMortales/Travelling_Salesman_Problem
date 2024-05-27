@@ -8,17 +8,21 @@ class tour {
  private:
   
   problema the_problem;
-  float c[2][100];
+  float ordenamiento[3][100];
   int actual;
 
  public:
   tour() {}
 
-  tour(problema the_problem, float cc[100]);
+  tour(problema the_problem, float n);
 
   void explorar();
 
+  float costo();
+
   void mover();
+
+  void show_ordenamiento();
 };
 
 #endif // CLASS_TOUR_H

@@ -5,11 +5,11 @@
 class problema {
   private:
   int n;
-  float coordenadas[2][100];
+  float coordenadas[3][100];
 
  public:
   problema() {}
-  problema(int nn, float user_coordenates[2][100]);
+  problema(int nn, float user_coordenates[3][100]);
 
   float distancia(int x, int y);
 
