@@ -1,55 +1,55 @@
-#include <iostream>
-#include "class_problema.h"
-#include "class_tour.h"
 #include <math.h>
 
+#include <iostream>
 
-problema::problema(int nn, float user_coordenates[1][100]){
+#include "class_problema.h"
+#include "class_tour.h"
 
-    for(int asign_values = 0; asign_values < nn; asign_values++){
-        coordenadas[0][asign_values] = user_coordenates[0][asign_values];
-        coordenadas[1][asign_values] = user_coordenates[1][asign_values];
+problema::problema(int nn, float user_coordenates[2][100]) {
+  n = nn;
+
+  for (int i = 0; i < 2; i++) {
+    for (int s = 0; s < n; s++) {
+      coordenadas[i][s] = user_coordenates[i][s];
     }
-
-n = nn;
+  }
 }
 
-tour::tour(problema pp, float cc[100]){
-actual = 0;
-PP=pp;
-c[2][100] = cc[100];
+tour::tour(problema pp, float cc[100]) {
+  bool actual;
+  the_problem = pp;
+  for (int i = 0; i < the_problem.getn(); i++)
+  {
+    c[actual][i] = i; //paso-n_city
+  }
+  
+  c[2][100] = cc[100];
 }
 
-int problema::getn(){
-return n;
+void tour::explorar() {
+
 }
 
-float problema::distancia(int x, int y){
-return sqrt(pow(coordenadas[0][x]-coordenadas[0][y],2) + pow(coordenadas[1][x]-coordenadas[1][y],2));
+int problema::getn() { return n; }
+
+float problema::distancia(int x, int y) { //they're taking the positions of the city 1 and the city 2 
+  return sqrt(pow(coordenadas[0][x-1] - coordenadas[0][y-1], 2) +
+              pow(coordenadas[1][x-1] - coordenadas[1][y-1], 2));
 }
 
-void tour::explorar(){
-int x=1;
-int y=1;
-int temp;
+//FIXME:
 
-while (x=y){
-x=rand()%7;
-y=rand()%7;}
-for(int i=1;i<7;i++){
-c[actual][i];
-}
+void problema::show() {
+  for (int s = 0; s < n; s++) {
+    std::cout << "|" << s + 1 << "|";
+  }
 
-c[!actual][x] = c[!actual][temp];
-c[!actual][y] = c[!actual][x];
-c[!actual][y] = c[!actual][temp];
-}
+  std::cout << "\n";
 
-void problema::show(){ 
-    
-for(int i=0; i<n; i++){
-    std::cout<<"\n"<<i+1<<":\n|x| - "<<coordenadas[0][i]<<"\n";
-    std::cout<<"|y| - "<<coordenadas[1][i];
-}
-
+  for (int i = 0; i < 2; i++) {
+    for (int s = 0; s < n; s++) {
+      std::cout << "|" << coordenadas[i][s] << "|";
+    }
+    std::cout << "\n";
+  }
 }

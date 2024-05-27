@@ -7,14 +7,14 @@ class tour {
 
  private:
   
-  problema PP;
+  problema the_problem;
   float c[2][100];
   int actual;
 
  public:
   tour() {}
 
-  tour(problema pp, float cc[100]);
+  tour(problema the_problem, float cc[100]);
 
   void explorar();
 

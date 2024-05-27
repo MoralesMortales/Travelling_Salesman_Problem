@@ -12,22 +12,26 @@ using namespace std;
 int main() {
 
   int n = 7;
-  float coordenadas[1][100];  //x,y
+  float coordenadas[2][100];  //x,y
   
   srand(time(0));
 
   for (int f = 0; f < n; f++) {
-      coordenadas[0][f] = rand() % 10;
-      coordenadas[1][f] = rand() % 10;
+    for (int i = 0; i < 2; i++)
+    {
+      coordenadas[i][f] = rand() % 10;
+    }
   }
 
-for(int f = 0; f < n ; f++){
-  cout<<coordenadas[0][f]<<" & "<<coordenadas[1][f]<<"\n";
-}
+cout<<"\nThere are "<<n<<" cities\n";
 
 problema P(7, coordenadas);
 
 P.show();
+
+
+
+std::cout<<P.distancia(2,4)<<" km\n";
 
   return 0;        
           }
